@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html id="remote">
+<link rel="stylesheet" type="text/css" href="static/css/main.css">
+<body>
+
+<div align="center">
+    <table>
+        <tbody>
+            <tr>
+                <td id='team_a_logo_col' class="logo">
+                    <img src="" alt="" id="team_a_logo"/>
+                </td>
+                <td class="name">
+                    <p id="team_a_name"></p>
+                </td>
+                <td id="set_a_1">
+                    <p id="team_a_set_1"></p>
+                </td>
+                <td id="set_a_2">
+                    <p id="team_a_set_2"></p>
+                </td>
+                <td id="set_a_3">
+                    <p id="team_a_set_3"></p>
+                </td>
+                <td id="set_a_4">
+                    <p id="team_a_set_4"></p>
+                </td>
+                <td id="set_a_5">
+                    <p id="team_a_set_5"></p>
+                </td>
+            </tr>
+            <tr>
+                <td id='team_b_logo_col' class="logo">
+                    <img alt="" id="team_b_logo"/>
+                </td>
+                <td class="name">
+                    <p id="team_b_name"></p>
+                </td>
+                <td id="set_b_1">
+                    <p id="team_b_set_1"></p>
+                </td>
+                <td id="set_b_2">
+                    <p id="team_b_set_2"></p>
+                </td>
+                <td id="set_b_3">
+                    <p  id="team_b_set_3"></p>
+                </td>
+                <td  id="set_b_4">
+                    <p id="team_b_set_4"></p>
+                </td>
+                <td id="set_b_5">
+                    <p id="team_b_set_5"></p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<div align="center">
+    <table class="control_table ">
+        <thead>
+            <tr>
+            <th class="control_team_text" id="team_a_name_btns"></th>
+            <th></th>
+            <th class="control_set_text">Set</th>
+            <th></th>
+            <th class="control_team_text" id="team_b_name_btns"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td class="table_color"><button class="control_btn btn_color" id="increment_a">+</button></td>
+            <td class="table_color"></td>
+            <td class="table_color"><button class="control_set_btn btn_color" id="increment_set">+</button></td>
+            <td class="table_color"></td>
+            <td class="table_color"><button class="control_btn btn_color" id="increment_b">+</button></td>
+            </tr>
+            <tr>
+            <td class="table_color"><button class="control_btn btn_color" id="decrement_a">-</button></td>
+            <td class="table_color"></td>
+            <td class="table_color"><button class="control_set_btn btn_color" id="decrement_set">-</button></td>
+            <td class="table_color"></td>
+            <td class="table_color"><button class="control_btn btn_color" id="decrement_b">-</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<p>&nbsp;</p>
+<button id="reload">Recharger</button>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js"></script>
+    <script src="static/js/script.js"></script>
+
+</body>
+<html>

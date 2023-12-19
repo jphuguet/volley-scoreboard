@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" type="text/css" href="/static/css/main.css">
+<body>
+ 
+<div>
+    <table align="right">
+        <tbody>
+            <tr>
+                <td id='team_a_logo_col' class="logo">
+                    <img src="" alt="" id="team_a_logo"/>
+                </td>
+                <td class="name">
+                    <p id="team_a_name"></p>
+                </td>
+                <td id="set_a_1">
+                    <p id="team_a_set_1"></p>
+                </td>
+                <td id="set_a_2">
+                    <p id="team_a_set_2"></p>
+                </td>
+                <td id="set_a_3">
+                    <p id="team_a_set_3"></p>
+                </td>
+                <td id="set_a_4">
+                    <p id="team_a_set_4"></p>
+                </td>
+                <td id="set_a_5">
+                    <p id="team_a_set_5"></p>
+                </td>
+            </tr>
+            <tr>
+                <td id='team_b_logo_col' class="logo">
+                    <img alt="" id="team_b_logo"/>
+                </td>
+                <td class="name">
+                    <p id="team_b_name"></p>
+                </td>
+                <td id="set_b_1">
+                    <p id="team_b_set_1"></p>
+                </td>
+                <td id="set_b_2">
+                    <p id="team_b_set_2"></p>
+                </td>
+                <td id="set_b_3">
+                    <p  id="team_b_set_3"></p>
+                </td>
+                <td  id="set_b_4">
+                    <p id="team_b_set_4"></p>
+                </td>
+                <td id="set_b_5">
+                    <p id="team_b_set_5"></p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js"></script>
+    <script src="/static/js/script.js"></script>
+
+</body>
+<html>
+    
+<!-- contentEditable='true'
+onblur=\"exitStand(this);
+
+function exitStand(cellule)
+{
+    var num_stand = cellule.innerHTML;
+    num_stand = num_stand.replace("<br>", ""); 
+    num_stand = num_stand.replace("<b>", ""); 
+    num_stand = num_stand.replace("</b>", ""); 
+    //alert (num_stand+' - '+cellule.id+' - '+salonId.innerHTML);
+    checkDoublonStand(num_stand) ;
+
+    url = "/gso/php/ajax/update_exp_salon.php?field=NUM_STAND&salonId="+salonId.innerHTML+"&exposantId="+cellule.id+"&value="+num_stand;
+    callPage(url);
+} -->
