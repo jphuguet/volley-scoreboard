@@ -9,8 +9,8 @@ socket.addEventListener("logos", (event) => {
 
 function set_logos(data) {
     path = "/static/logos/"
-    logo_a = data['a']['img'];
-    logo_b = data['b']['img']
+    logo_a = data['a']['logo'];
+    logo_b = data['b']['logo']
     if (logo_a == 'None' || logo_b == 'None') {
         document.getElementById('team_a_logo_col').style.display = "None";
         document.getElementById('team_b_logo_col').style.display = "None";

@@ -1,15 +1,12 @@
 console.log('Init index...');
 const socket = io.connect();
 
-team_a_logo = document.getElementById('team_a_logo');
-team_b_logo = document.getElementById('team_b_logo');
-
-
+const team_a_logo = document.getElementById('team_a_logo');
+const team_b_logo = document.getElementById('team_b_logo');
 
 // Add logos to dropdown list
 socket.addEventListener("setup", (event) => {
     const files = JSON.parse(event)['files'];
-    // console.log(files);
     let i = 0;
 
     while (i < files.length) {
@@ -18,7 +15,6 @@ socket.addEventListener("setup", (event) => {
         opt.value = i;
         opt.innerHTML = f;
         team_a_logo.appendChild(opt);
-
         
         var opt = document.createElement('option');
         opt.value = i;
@@ -49,7 +45,6 @@ team_b_logo.addEventListener("change", () => {
 });
 
 function set_logo(team, file) {
-    console.log(team, file);
     var data = {}
     data[team] = file
     socket.emit('team_logos',data);
@@ -57,11 +52,11 @@ function set_logo(team, file) {
 
 function set_team_names()
 {
-    team_name_a = document.getElementById('team_a_name_input').value;
-    team_name_b = document.getElementById('team_b_name_input').value;
+    team_a_name = document.getElementById('team_a_name_input').value;
+    team_b_name = document.getElementById('team_b_name_input').value;
     var names={  
-        a : team_name_a,  
-        b : team_name_b  
+        a : team_a_name,  
+        b : team_b_name  
         };     
     socket.emit('team_names',names);
 }

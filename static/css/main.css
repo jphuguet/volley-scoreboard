@@ -1,4 +1,4 @@
-body {
+html, body {
     background: #aaaaaa;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: lighter;
@@ -12,6 +12,7 @@ table {
     font-size: 30px;
     margin-top: 10px;
 }
+
 
 td {
     background-color: #2558a1;
@@ -89,9 +90,14 @@ img {
 .control_team_text {
     width: 30%;
     vertical-align: bottom;
+    text-align: center;
 }
 
 .control_set_text {
     width: 10%;
     vertical-align: bottom;
+}
+
+.large_btn {
+    width: 50%;
 }

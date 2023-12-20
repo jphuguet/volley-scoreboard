@@ -1,5 +1,5 @@
 import json
-from flask import Flask, render_template, request 
+from flask import Flask, render_template, request, send_from_directory
 from flask_socketio import SocketIO, emit
 import os.path
 import argparse
@@ -156,7 +156,7 @@ class Game:
             with open(filename, 'w') as f:
                 f.write(str(logo))
                 f.close()            
-                self.score[team]['img'] = logo
+                self.score[team]['logo'] = logo
 
     def get_team_logo(self, team):
         filename = u"{gamedir}/team_{team}_logo".format(gamedir=GAMEDIR,team=team)
@@ -243,6 +243,10 @@ def remote():
 def score():
     return render_template('score.html')
 
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 if __name__ == '__main__':
     socketio.run(app.run(debug=is_debug_on, host="0.0.0.0", port=3000))
