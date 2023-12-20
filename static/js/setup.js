@@ -55,10 +55,21 @@ function set_team_names()
     team_a_name = document.getElementById('team_a_name_input').value;
     team_b_name = document.getElementById('team_b_name_input').value;
     var names={  
-        a : team_a_name,  
-        b : team_b_name  
-        };     
+        a : team_a_name,
+        b : team_b_name
+        };
     socket.emit('team_names',names);
+}
+
+function set_team_colors()
+{
+    const team_a_color = document.getElementById('team_a_color').value;
+    const team_b_color = document.getElementById('team_b_color').value;
+    var colors={  
+        a : team_a_color,
+        b : team_b_color
+        };
+    socket.emit('team_colors',colors);
 }
 
 const new_game = document.getElementById('new_game');
@@ -69,12 +80,19 @@ new_game.addEventListener('click', () => {
 const team_a_name_input = document.getElementById('team_a_name_input');
 team_a_name_input.addEventListener("blur", () => {
     set_team_names();
-    console.log(team_a_name_input.value)
 });
 
 const team_b_name_input = document.getElementById('team_b_name_input');
 team_b_name_input.addEventListener("blur", () => {
     set_team_names();
-    console.log(team_b_name_input.value)
 });
 
+const team_a_color = document.getElementById('team_a_color');
+team_a_color.addEventListener("change", () => {
+    set_team_colors();
+});
+
+const team_b_color = document.getElementById('team_b_color');
+team_b_color.addEventListener("change", () => {
+    set_team_colors();
+});

@@ -30,10 +30,12 @@ class Game:
             for set_num in range(1, 6):
                 filename = u"team_{team}_set_{set_num}".format(team=team,set_num=set_num)
                 file_lst.append(filename)
-            filename = u"team_{}_name".format(team)
-            file_lst.append(filename)
+            name = u"team_{}_name".format(team)
+            file_lst.append(name)
             logo = u"team_{}_logo".format(team)
             file_lst.append(logo)
+            color = u"team_{}_color".format(team)
+            file_lst.append(color)
         file_lst.append("set_num")
         return file_lst
 
@@ -46,11 +48,11 @@ class Game:
             for set_num in range(1, self.set_num+1):
                 tmp_dict[set_num] = int(self.read_score_file(team=team, set_num=set_num))
             tmp_dict["name"] = self.get_team_name(team)
-            tmp_dict["img"] = self.get_team_logo(team)
+            tmp_dict["logo"] = self.get_team_logo(team)
+            tmp_dict["color"] = self.get_team_color(team)
 
             self.score[team] = tmp_dict
         self.score['set'] = self.set_num
-        # print("--- Scores loaded from files ---")    
 
     def create_files(self):
         for f in self.filenames:
@@ -74,7 +76,7 @@ class Game:
         for f in self.filenames:
             filename = u"{}/{}".format(GAMEDIR, f)
             if os.path.exists(filename):
-                if filename.endswith("_name") or filename.endswith("_logo"):
+                if filename.endswith("_name") or filename.endswith("_logo") or filename.endswith("_color"):
                     continue
                 print("deleting file {}".format(f))
                 os.remove(filename)
@@ -124,7 +126,14 @@ class Game:
             filename = u"{gamedir}/team_{team}_name".format(gamedir=GAMEDIR,team=team)
             with open(filename, 'w') as f:
                 f.write(names[team])
-                f.close()  
+                f.close()
+
+    def update_team_colors(self, colors):
+        for team in ['a', 'b']:
+            filename = u"{gamedir}/team_{team}_color".format(gamedir=GAMEDIR,team=team)
+            with open(filename, 'w') as f:
+                f.write(colors[team])
+                f.close()
 
     def change_set(self, value):
         self.score['previous_set_value'] = self.set_num
@@ -163,7 +172,14 @@ class Game:
         with open(filename, 'r') as f:
             logo = f.read()
             f.close()
-        return logo.upper()
+        return logo
+
+    def get_team_color(self, team):
+        filename = u"{gamedir}/team_{team}_color".format(gamedir=GAMEDIR,team=team)
+        with open(filename, 'r') as f:
+            color = f.read()
+            f.close()
+        return color
 
     def get_score(self,team):
         return self.score[team][self.set_num]
@@ -182,13 +198,11 @@ def on_connect():
 @socketio.on('increment')
 def handle_increment(team):
     scoreboard.increase(team)
-    #emit(u'update_{}'.format(team), scoreboard.get_score(team),broadcast=True)
     emit('all', json.dumps(scoreboard.get_all()), broadcast=True)
 
 @socketio.on('decrement')
 def handle_decrement(team):
     scoreboard.decrease(team)
-    #emit(u'update_{}'.format(team), scoreboard.get_score(team),broadcast=True)
     emit('all', json.dumps(scoreboard.get_all()), broadcast=True)
 
 @socketio.on('increment_set')
@@ -207,10 +221,16 @@ def handle_team_names(names):
     scoreboard.read_score_files()
     emit('all', json.dumps(scoreboard.get_all()), broadcast=True)
 
+@socketio.on('team_colors')
+def handle_team_colors(colors):
+    scoreboard.update_team_colors(colors)
+    scoreboard.read_score_files()
+    emit('logos_colors', json.dumps(scoreboard.get_all()), broadcast=True)
+
 @socketio.on('team_logos')
 def team_logos(data):
     scoreboard.update_team_logos(data)
-    emit('logos', json.dumps(scoreboard.get_all()), broadcast=True)
+    emit('logos_colors', json.dumps(scoreboard.get_all()), broadcast=True)
 
 @socketio.on('new_game')
 def handle_new_game():

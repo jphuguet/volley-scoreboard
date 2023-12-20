@@ -2,21 +2,34 @@
 console.log('Init...');
 const socket = io.connect();
 
-socket.addEventListener("logos", (event) => {
+socket.addEventListener("logos_colors", (event) => {
     const data = JSON.parse(event);
-    set_logos(data);
+    set_logos_colors(data);
 })
 
-function set_logos(data) {
-    path = "/static/logos/"
-    logo_a = data['a']['logo'];
-    logo_b = data['b']['logo']
+function set_logos_colors(data) {
+    const logo_a = data['a']['logo'];
+    const color_a = data['a']['color'];
+    const logo_b = data['b']['logo'];
+    const color_b = data['b']['color'];
+
     if (logo_a == 'None' || logo_b == 'None') {
+        console.log('One null');
         document.getElementById('team_a_logo_col').style.display = "None";
         document.getElementById('team_b_logo_col').style.display = "None";
+
+        const color_a_item = document.getElementById('team_a_color_col')
+        const color_b_item = document.getElementById('team_b_color_col')
+        color_a_item.style.display = "table-cell";
+        color_b_item.style.display = "table-cell";
+        color_a_item.style.backgroundColor = color_a;
+        color_b_item.style.backgroundColor = color_b;
     } else {
+        path = "/static/logos/"
         document.getElementById('team_a_logo_col').style.display = "table-cell";
         document.getElementById('team_b_logo_col').style.display = "table-cell";
+        document.getElementById('team_a_color_col').style.display = "None";
+        document.getElementById('team_b_color_col').style.display = "None";
         img_a = document.getElementById('team_a_logo');
         img_b = document.getElementById('team_b_logo');
         img_a.src = path + encodeURI(logo_a);
@@ -26,17 +39,14 @@ function set_logos(data) {
 
 socket.addEventListener("all", (event) => {
     const data = JSON.parse(event);
-    // console.log(data);
 
     const current_set = data['set'];
     const team_a_name = data['a']['name'];
     const team_b_name = data['b']['name'];
 
-    set_logos(data);
+    set_logos_colors(data);
     
-    
-    
-    if (document.getElementById('remote') != null) {        
+    if (document.getElementById('remote') != null) {
         // print team name above control buttons
         document.getElementById('team_a_name_btns').textContent = team_a_name;
         document.getElementById('team_b_name_btns').textContent = team_b_name;
@@ -68,7 +78,7 @@ socket.addEventListener("all", (event) => {
             document.getElementById(id_a).style.backgroundColor = "#2558a1";
             
             document.getElementById(id_b).style.display = "table-cell";
-            document.getElementById(id_b).style.backgroundColor = "#2558a1";                
+            document.getElementById(id_b).style.backgroundColor = "#2558a1";
         }
 
         id_a = "set_a_" + current_set;
@@ -131,11 +141,6 @@ if (document.getElementById('remote') != null) {
     const decrement_set = document.getElementById('decrement_set');
     decrement_set.addEventListener('click', () => {
         socket.emit('decrement_set');
-    });
-
-    const new_game = document.getElementById('new_game');
-    new_game.addEventListener('click', () => {
-        socket.emit('new_game');
     });
 
     const reload = document.getElementById('reload');

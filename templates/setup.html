@@ -3,23 +3,26 @@
 <link rel="stylesheet" type="text/css" href="/static/css/main.css">
 <body>
 
-
-    <p>Team A name&nbsp;<input id="team_a_name_input"></input></p>
-    <label>Team A logo</label> 
-    <select id="team_a_logo">
-        <option value="">None</option>
-    </select>
+    <p>Team A name <input id="team_a_name_input"></input></p>
+    <p>Team A logo 
+        <select id="team_a_logo">
+            <option value="">None</option>
+        </select>
+    </p>
+    <p>Team A color <input type="color" id="team_a_color" value="#0000ff" /></p>
 
     <p />
     <p />
 
-    <p>Team B name&nbsp;<input id="team_b_name_input"></input></p>
-    <label>Team B logo</label>
-    <select id="team_b_logo"> 
-        <option value="">None</option>
-    </select>
+    <p>Team B name <input id="team_b_name_input"></input></p>
+    <p>Team B logo 
+        <select id="team_b_logo"> 
+            <option value="">None</option>
+        </select>
+    </p>
+    <p>Team B color <input type="color" id="team_b_color" value="#0000ff" /></p>
 
-    <div style="margin-top: 30px;">
+    <div align="center" style="margin-top: 30px;">
         <p><button class="large_btn" id="new_game">New game</button></p>
         <p><button class="large_btn" onclick="window.location.href = '';">Index</button></p>
         <p><button class="large_btn" onclick="window.location.href = 'remote';">Remote control</button></p>
