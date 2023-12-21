@@ -1,11 +1,13 @@
 html, body {
-    /* background: #aaaaaa; */
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: lighter;
     margin: 0;
     padding: 0;
   }
 
+.body_remote {
+    background:  #aaaaaa;
+}
 
 table {
     background-color: white;
@@ -120,7 +122,7 @@ button {
 	border: 1px solid #2558a1;
 }
 
-.color {
+.team_color {
     border-radius: 5%;
     width: 15px;
 }
