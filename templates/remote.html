@@ -10,7 +10,7 @@
                 <td id='team_a_logo_col' class="logo">
                     <img src="" alt="" id="team_a_logo"/>
                 </td>
-                <td id='team_a_color_col' class="color"></td>
+                <td id='team_a_color_col' class="team_color"></td>
                 <td class="name">
                     <p id="team_a_name"></p>
                 </td>
@@ -34,7 +34,7 @@
                 <td id='team_b_logo_col' class="logo">
                     <img alt="" id="team_b_logo"/>
                 </td>
-                <td id='team_b_color_col' class="color"></td>
+                <td id='team_b_color_col' class="team_color"></td>
                 <td class="name">
                     <p id="team_b_name"></p>
                 </td>
@@ -55,46 +55,33 @@
                 </td>
             </tr>
         </tbody>
-    </table>
-</div>
+      </table>
+    </div>
+    <div class="score_button">
+      <div class="column">
+        <div class="title" id="team_a_name_btns">Équipe A</div>
+        <button class="control_btn btn_color" id="increment_a">+</button>
+        <button class="control_btn btn_color" id="decrement_a">-</button>
+      </div>
+      <div class="column">
+        <div class="title" class="control_set_text">Set</div>
+        <button class="control_set_btn btn_color" id="increment_set">+</button>
+        <button class="control_set_btn btn_color" id="decrement_set">-</button>
+      </div>
+      <div class="column">
+        <div class="title" id="team_b_name_btns">Équipe B</div>
+        <button class="control_btn btn_color" id="increment_b">+</button>
+        <button class="control_btn btn_color" id="decrement_b">-</button>
+      </div>
+    </div>
 
-
-<div align="center">
-    <table class="control_table" cellspacing="0" cellpadding="0">
-        <thead>
-            <tr>
-            <th class="table_color control_team_text" id="team_a_name_btns"></th>
-            <th class="table_color"></th>
-            <th class="table_color control_set_text">Set</th>
-            <th class="table_color"></th>
-            <th class="table_color control_team_text" id="team_b_name_btns"></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-            <td class="table_color"><button class="control_btn btn_color" id="increment_a">+</button></td>
-            <td class="table_color"></td>
-            <td class="table_color"><button class="control_set_btn btn_color" id="increment_set">+</button></td>
-            <td class="table_color"></td>
-            <td class="table_color"><button class="control_btn btn_color" id="increment_b">+</button></td>
-            </tr>
-            <tr>
-            <td class="table_color"><button class="control_btn btn_color" id="decrement_a">-</button></td>
-            <td class="table_color"></td>
-            <td class="table_color"><button class="control_set_btn btn_color" id="decrement_set">-</button></td>
-            <td class="table_color"></td>
-            <td class="table_color"><button class="control_btn btn_color" id="decrement_b">-</button></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-
-<div align="center" style="margin-top: 20px;">
-    <button class="large_btn" id="reload">Reload data</button>
-</div>
+    <div align="center">
+        <p><button class="large_btn" id="reload">Reload</button></p>
+        <p><button class="large_btn" onclick="window.location.href = '';">Index</button></p>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js"></script>
     <script src="static/js/script.js"></script>
-
-</body>
-<html>
+  </body>
+  <html></html>
+</html>
