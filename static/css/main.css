@@ -135,6 +135,11 @@ button {
   text-shadow: 0px -1px 0px #5b6178;
 }
 
+.team_color {
+  border-radius: 5%;
+  width: 15px;
+}
+
 @media screen and (max-width: 768px) {
   body {
     overflow-x: hidden;
