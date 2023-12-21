@@ -11,19 +11,19 @@ html, body {
 
 table {
     background-color: white;
-    font-size: 30px;
+    font-size: 35px;
     margin: 10px;
 }
-
-
+tr {
+  vertical-align: bottom;
+}
 td {
   background-color: #2558a1;
   color: white;
   text-align: center;
-  width: 55px;
+  width: 65px;
   line-height: 1px;
-  display: table-cell;
-  height: 65px;
+  height: 15px;
 }
 
 .name {
@@ -127,7 +127,6 @@ button {
   display: inline-block;
   cursor: pointer;
   color: #ffffff;
-  /* font-family: Arial; */
   font-size: 15px;
   font-weight: normal;
   padding: 4px 24px;
@@ -138,6 +137,7 @@ button {
 .team_color {
   border-radius: 5%;
   width: 15px;
+  border: 1px solid black;
 }
 
 @media screen and (max-width: 768px) {

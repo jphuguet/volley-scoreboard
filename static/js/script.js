@@ -14,7 +14,6 @@ function set_logos_colors(data) {
     const color_b = data['b']['color'];
 
     if (logo_a == 'None' || logo_b == 'None') {
-        console.log('One null');
         document.getElementById('team_a_logo_col').style.display = "None";
         document.getElementById('team_b_logo_col').style.display = "None";
 
