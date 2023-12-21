@@ -3,7 +3,7 @@ html, body {
   font-weight: lighter;
   margin: 0;
   padding: 0;
-  background: black;
+  /* background: black; */
 }
 
 .body_remote {
@@ -12,12 +12,12 @@ html, body {
 
 table {
   background-color: white;
-  font-size: 30px;
+  font-size: 40px;
   margin: 10px;
 }
 
 p {
-  margin-top: 20px;
+  margin-top: 18px;
   margin-bottom: 15px;
 }
 

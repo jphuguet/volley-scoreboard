@@ -30,6 +30,11 @@ socket.addEventListener("all", (event) => {
     document.getElementById('team_a_name_input').value = data['a']['name'];
     document.getElementById('team_b_name_input').value = data['b']['name'];
 
+    document.getElementById('team_a_color').value = data['a']['color'];
+    document.getElementById('team_b_color').value = data['b']['color'];
+
+    document.getElementById('team_a_logo').selectedIndex = data['a']['logo'];
+    document.getElementById('team_b_logo').selectedIndex = data['b']['logo'];
 });
 
 team_a_logo.addEventListener("change", () => {
