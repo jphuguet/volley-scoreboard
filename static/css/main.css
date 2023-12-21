@@ -1,45 +1,51 @@
 html, body {
-    font-family: 'Source Sans Pro', sans-serif;
-    font-weight: lighter;
-    margin: 0;
-    padding: 0;
-  }
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: lighter;
+  margin: 0;
+  padding: 0;
+  background: black;
+}
 
 .body_remote {
-    background:  #aaaaaa;
+  background:  #aaaaaa;
 }
 
 table {
-    background-color: white;
-    font-size: 35px;
-    margin: 10px;
+  background-color: white;
+  font-size: 30px;
+  margin: 10px;
 }
-tr {
-  vertical-align: bottom;
+
+p {
+  margin-top: 20px;
+  margin-bottom: 15px;
 }
+
 td {
   background-color: #2558a1;
   color: white;
   text-align: center;
-  width: 65px;
+  width: 55px;
   line-height: 1px;
-  height: 15px;
+  height: 40px;
 }
 
 .name {
   width: auto;
   text-align: left;
-  padding-left: 10px;
-  padding-right: 30px;
+  padding-left: 30px;
+  padding-right: 60px;
 }
 
-img {
-  height: 55px;
-  width: auto;
+.logo_img {
+  height: 45px;
+  overflow: visible;
+  margin-right: -25px;
 }
 
-.logo {
-  background-color: #ffffff;
+.logo_col {
+  background-color: white;
+  width: 5px;
 }
 
 .hidden {
@@ -66,7 +72,7 @@ img {
 }
 
 .table_color {
-    background-color: #ffffff;
+  background-color: #ffffff;
 }
 
 .score_button {
@@ -115,10 +121,10 @@ img {
 }
 
 button {
-	background: linear-gradient(to bottom, #2558a1 5%, #0144a1 100%);
-	background-color: #2558a1;
-	border-radius: 6px;
-	border: 1px solid #2558a1;
+  background: linear-gradient(to bottom, #2558a1 5%, #0144a1 100%);
+  background-color: #2558a1;
+  border-radius: 6px;
+  border: 1px solid #2558a1;
 }
 
 .large_btn {

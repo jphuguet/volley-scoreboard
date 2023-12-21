@@ -24,11 +24,12 @@ function set_logos_colors(data) {
         color_a_item.style.backgroundColor = color_a;
         color_b_item.style.backgroundColor = color_b;
     } else {
-        path = "/static/logos/"
+        const path = "/static/logos/"
         document.getElementById('team_a_logo_col').style.display = "table-cell";
         document.getElementById('team_b_logo_col').style.display = "table-cell";
         document.getElementById('team_a_color_col').style.display = "None";
         document.getElementById('team_b_color_col').style.display = "None";
+
         img_a = document.getElementById('team_a_logo');
         img_b = document.getElementById('team_b_logo');
         img_a.src = path + encodeURI(logo_a);
