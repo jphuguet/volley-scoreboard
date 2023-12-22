@@ -261,6 +261,7 @@ def remote():
 
 @app.route('/score')
 def score():
+    # print(request.headers.get('User-Agent'))
     return render_template('score.html')
 
 @app.route('/favicon.ico')

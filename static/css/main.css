@@ -40,7 +40,6 @@ td {
 .logo_img {
   height: 45px;
   overflow: visible;
-  /* margin-right: -25px; */
 }
 
 .logo_col {
@@ -150,5 +149,12 @@ button {
   body {
     overflow-x: hidden;
     overflow-y: hidden;
+  }
+}
+
+/* specific case : Firefox */
+@-moz-document url-prefix() {
+  p {
+    margin-top: 22px;
   }
 }
