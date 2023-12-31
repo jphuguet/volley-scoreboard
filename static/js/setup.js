@@ -1,28 +1,33 @@
 console.log('Init index...');
 const socket = io.connect();
 
-const team_a_logo = document.getElementById('team_a_logo');
-const team_b_logo = document.getElementById('team_b_logo');
-
 // Add logos to dropdown list
-socket.addEventListener("setup", (event) => {
-    const files = JSON.parse(event)['files'];
+socket.addEventListener("setup", (data) => {
+    // add files to logo list box
+    // the select the value stored in txt files
+    const files = JSON.parse(data)['files'];
+    const logos = JSON.parse(data)['logos'];
     let i = 0;
+
+    const team_a_logo = document.getElementById('team_a_logo');
+    const team_b_logo = document.getElementById('team_b_logo');
 
     while (i < files.length) {
         f = files[i];
-        var opt = document.createElement('option');
-        opt.value = i;
-        opt.innerHTML = f;
-        team_a_logo.appendChild(opt);
-        
-        var opt = document.createElement('option');
-        opt.value = i;
-        opt.innerHTML = f;
-        team_b_logo.appendChild(opt);    
+
+        let option_a = new Option(f,f);
+        team_a_logo.add(option_a,undefined);
+
+        let option_b = new Option(f,f);
+        team_b_logo.add(option_b,undefined);
         i++;
-    }  
+    }
+
+    team_a_logo.value = logos['a'];
+    team_b_logo.value = logos['b'];
 })
+
+
 
 socket.addEventListener("all", (event) => {
     const data = JSON.parse(event);
@@ -33,8 +38,8 @@ socket.addEventListener("all", (event) => {
     document.getElementById('team_a_color').value = data['a']['color'];
     document.getElementById('team_b_color').value = data['b']['color'];
 
-    document.getElementById('team_a_logo').selectedIndex = data['a']['logo'];
-    document.getElementById('team_b_logo').selectedIndex = data['b']['logo'];
+    document.getElementById('team_a_logo').value = data['a']['logo'];
+    document.getElementById('team_b_logo').value = data['b']['logo'];
 });
 
 team_a_logo.addEventListener("change", () => {

@@ -6,10 +6,31 @@ It isn't well written, the code is pretty dumb and naive but it gets the job don
 It uses socket.io and the broacast mode : any changes made in the `remote` or `setup` page will update the values on any client.
 
 # Installation
+
+## Ubuntu
+```shell
+./scripts/install.sh
+```
+
+If you want to add a desktop shortcut :
+```shell
+./scripts/ubuntu.sh
+```
+
+## Other Linux & MacOS and probably Windows
 ```
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
+```
+
+# Run the application
+```shell
+./scripts/start.sh
+```
+
+Or
+```
 python3 main.py
 ```
 

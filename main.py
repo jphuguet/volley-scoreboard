@@ -154,10 +154,16 @@ class Game:
             if self.set_num not in self.score[team]:
                 self.score[team][self.set_num] = 0 # initialise score for new set
 
-    def list_logos(self):
+    def logos(self):
         # only jpg png and svg files accepted. dumb and simple
+        # get list from files list
         img = [f for f in os.listdir("static/logos") if f.lower().endswith('jpg') or f.lower().endswith('png') or f.lower().endswith('svg')]
-        return {"files": sorted(img)}
+        
+        #
+        logos = {}
+        logos['a'] = self.get_team_logo('a')
+        logos['b'] = self.get_team_logo('b')
+        return {"files": sorted(img),"logos": logos}
 
     def update_team_logos(self, data):
         for team,logo in data.items():
@@ -193,7 +199,7 @@ class Game:
 def on_connect():
     print('Connected to the server')
     emit('all', json.dumps(scoreboard.get_all()), broadcast=True)
-    emit('setup', json.dumps(scoreboard.list_logos()), broadcast=True)
+    emit('setup', json.dumps(scoreboard.logos()), broadcast=True)
 
 @socketio.on('increment')
 def handle_increment(team):
