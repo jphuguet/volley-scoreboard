@@ -1,6 +1,27 @@
 console.log('Init index...');
 const socket = io.connect();
 
+
+const team_a_name_input = document.getElementById('team_a_name_input');
+const team_b_name_input = document.getElementById('team_b_name_input');
+
+team_a_name_input.addEventListener("keydown", (event) => {
+    if (event.key.match(/[0-9a-zA-Z\u00C0-\u017F\s]+/g)) {
+        return event;
+    } else {
+        event.preventDefault();
+    }
+});
+
+team_b_name_input.addEventListener("keydown", (event) => {
+    if (event.key.match(/[0-9a-zA-Z\u00C0-\u017F\s]+/g)) {
+        return event;
+    } else {
+        event.preventDefault();
+    }
+});
+
+
 // Add logos to dropdown list
 socket.addEventListener("setup", (data) => {
     // add files to logo list box
@@ -87,12 +108,12 @@ new_game.addEventListener('click', () => {
     socket.emit('new_game');
 });
 
-const team_a_name_input = document.getElementById('team_a_name_input');
+// const team_a_name_input = document.getElementById('team_a_name_input');
 team_a_name_input.addEventListener("blur", () => {
     set_team_names();
 });
 
-const team_b_name_input = document.getElementById('team_b_name_input');
+// const team_b_name_input = document.getElementById('team_b_name_input');
 team_b_name_input.addEventListener("blur", () => {
     set_team_names();
 });
