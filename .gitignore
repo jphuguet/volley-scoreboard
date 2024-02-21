@@ -1,4 +1,4 @@
 .idea/*
 venv/*
-match/*
+data/*
 .DS_Store
