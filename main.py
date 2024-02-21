@@ -10,7 +10,7 @@ args = parser.parse_args()
 
 is_debug_on = args.is_debug_on
 
-GAMEDIR = "match"
+GAMEDIR = "data"
 
 app = Flask(__name__,
             static_folder='static',
