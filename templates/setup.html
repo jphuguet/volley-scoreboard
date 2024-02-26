@@ -2,25 +2,55 @@
 <html>
 <link rel="stylesheet" type="text/css" href="/static/css/main.css">
 <body>
+    <p />
+    <p />
 
-    <p>Team A name <input id="team_a_name_input" maxlength="15"/></p>
-    <p>Team A logo 
-        <select id="team_a_logo">
-            <option value="None">None</option>
-        </select>
-    </p>
-    <p>Team A color <input type="color" id="team_a_color" value="#0000ff" /></p>
+    <fieldset>
+      <legend>Select logo / color mode:</legend>
+
+      <div>
+        <input type="radio" id="logo_only" name="logo_mode" value="logo" checked />
+        <label for="logo_only">logo</label>
+      </div>
+
+      <div>
+        <input type="radio" id="color_only" name="logo_mode" value="color" />
+        <label for="color_only">color</label>
+      </div>
+
+      <div>
+        <input type="radio" id="both_logo_color" name="logo_mode" value="both" />
+        <label for="both_logo_color">both</label>
+      </div>
+    </fieldset>
 
     <p />
     <p />
 
-    <p>Team B name <input id="team_b_name_input" maxlength="15" /></p>
-    <p>Team B logo 
-        <select id="team_b_logo"> 
-            <option value="None">None</option>
-        </select>
-    </p>
-    <p>Team B color <input type="color" id="team_b_color" value="#0000ff" /></p>
+    <fieldset>
+      <legend>Team A</legend>
+        <p>Name <input id="team_a_name_input" maxlength="15"/></p>
+        <p>Logo
+            <select id="team_a_logo">
+                <option value="None">None</option>
+            </select>
+        </p>
+        <p>Color <input type="color" id="team_a_color" value="#0000ff" /></p>
+    </fieldset>
+
+    <p />
+    <p />
+
+    <fieldset>
+      <legend>Team B</legend>
+        <p>Name <input id="team_b_name_input" maxlength="15" /></p>
+        <p>Logo
+            <select id="team_b_logo">
+                <option value="None">None</option>
+            </select>
+        </p>
+        <p>Color <input type="color" id="team_b_color" value="#0000ff" /></p>
+    </fieldset>
 
     <div align="center" style="margin-top: 30px;">
         <p><button class="large_btn" id="new_game">New game</button></p>

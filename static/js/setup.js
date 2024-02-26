@@ -23,11 +23,15 @@ team_b_name_input.addEventListener("keydown", (event) => {
 
 
 // Add logos to dropdown list
-socket.addEventListener("setup", (data) => {
+socket.addEventListener("setup", (event) => {
     // add files to logo list box
-    // the select the value stored in txt files
-    const files = JSON.parse(data)['files'];
-    const logos = JSON.parse(data)['logos'];
+    // then select the value stored in txt files
+    data = JSON.parse(event);
+    console.log(data)
+    const files = data['files'];
+    const logos = data['logos'];
+    const logo_mode = data['logo_mode'];
+
     let i = 0;
 
     const team_a_logo = document.getElementById('team_a_logo');
@@ -46,6 +50,16 @@ socket.addEventListener("setup", (data) => {
 
     team_a_logo.value = logos['a'];
     team_b_logo.value = logos['b'];
+
+    if (logo_mode == "logo") {
+        document.getElementById('logo_only').checked = true;
+    }
+    if (logo_mode == "color") {
+        document.getElementById('color_only').checked = true;
+    }
+    if (logo_mode == "both") {
+        document.getElementById('both_logo_color').checked = true;
+    }
 })
 
 
@@ -126,4 +140,18 @@ team_a_color.addEventListener("change", () => {
 const team_b_color = document.getElementById('team_b_color');
 team_b_color.addEventListener("change", () => {
     set_team_colors();
+});
+
+
+// Logo Mode
+document.getElementById('logo_only').addEventListener('click', () => {
+    socket.emit('logo_mode', "logo");
+});
+
+document.getElementById('color_only').addEventListener('click', () => {
+    socket.emit('logo_mode', "color");
+});
+
+document.getElementById('both_logo_color').addEventListener('click', () => {
+    socket.emit('logo_mode', "both");
 });
