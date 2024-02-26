@@ -12,8 +12,10 @@ function set_logos_colors(data) {
     const color_a = data['a']['color'];
     const logo_b = data['b']['logo'];
     const color_b = data['b']['color'];
+    const logo_mode = data['logo_mode'];
 
-    if (logo_a == 'None' || logo_b == 'None') {
+    if (logo_a == 'None' || logo_b == 'None' || logo_mode == 'color') {
+        // Only show COLORS
         document.getElementById('team_a_logo_col').style.display = "None";
         document.getElementById('team_b_logo_col').style.display = "None";
 
@@ -24,16 +26,30 @@ function set_logos_colors(data) {
         color_a_item.style.backgroundColor = color_a;
         color_b_item.style.backgroundColor = color_b;
     } else {
+        // SHOW LOGO, maybe with COLOR
         const path = "/static/logos/"
-        document.getElementById('team_a_logo_col').style.display = "table-cell";
-        document.getElementById('team_b_logo_col').style.display = "table-cell";
-        document.getElementById('team_a_color_col').style.display = "None";
-        document.getElementById('team_b_color_col').style.display = "None";
-
         img_a = document.getElementById('team_a_logo');
         img_b = document.getElementById('team_b_logo');
         img_a.src = path + encodeURI(logo_a);
         img_b.src = path + encodeURI(logo_b);
+        document.getElementById('team_a_logo_col').style.display = "table-cell";
+        document.getElementById('team_b_logo_col').style.display = "table-cell";
+
+        if (logo_mode == "both") {
+            // Show both LOGO & COLOR
+            const color_a_item = document.getElementById('team_a_color_col')
+            const color_b_item = document.getElementById('team_b_color_col')
+            color_a_item.style.display = "table-cell";
+            color_b_item.style.display = "table-cell";
+            color_a_item.style.backgroundColor = color_a;
+            color_b_item.style.backgroundColor = color_b;
+        }
+
+        if (logo_mode == "logo") {
+        // Logo Only, hide COLORS
+            document.getElementById('team_a_color_col').style.display = "None";
+            document.getElementById('team_b_color_col').style.display = "None";
+        }
     }
 }
 
@@ -143,8 +159,4 @@ if (document.getElementById('remote') != null) {
         socket.emit('decrement_set');
     });
 
-    const reload = document.getElementById('reload');
-    reload.addEventListener('click', () => {
-        socket.emit('reload');
-    });
 }
