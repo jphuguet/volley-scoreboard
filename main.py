@@ -163,7 +163,7 @@ class Game:
         for f in self.filenames:
             filename = f"{GAMEDIR}/{f}"
             if os.path.exists(filename):
-                if filename.endswith("_name") or filename.endswith("_logo") or filename.endswith("_color"):
+                if filename.endswith("_name") or filename.endswith("_logo") or filename.endswith("_color") or filename.endswith("_mode"):
                     continue
                 print("deleting file {}".format(f))
                 os.remove(filename)
@@ -290,6 +290,7 @@ def handle_logo_mode(logo_mode):
 def handle_new_game():
     scoreboard.new_game()
     emit('all', json.dumps(scoreboard.get_all()), broadcast=True)
+    # emit('logos_colors', json.dumps(scoreboard.get_all()), broadcast=True)
 
 
 @socketio.on('reload')
