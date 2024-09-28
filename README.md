@@ -43,7 +43,7 @@ python3 main.py --debug-off
 ## Setup / logos
 The `/setup` page allows you to set the team name and logo or team color.
 If one of the team logo is set to `None` then the colors will be used for both teams.
-jpg / png / svg logo files must be located in the `static/logos` directory.
+jpg /jpeg / png / svg logo files must be located in the `static/logos` directory.
 
 The `New Game` button will reset scores, keeping teams' names, logos and colors.
 

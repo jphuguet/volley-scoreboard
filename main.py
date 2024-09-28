@@ -110,7 +110,7 @@ def logos():
     # only jpg png and svg files accepted. dumb and simple
     # get list from files list
     img = [f for f in os.listdir("static/logos") if
-           f.lower().endswith('jpg') or f.lower().endswith('png') or f.lower().endswith('svg')]
+           f.lower().endswith('.jpg') or f.lower().endswith('.jpeg') or  f.lower().endswith('.png') or f.lower().endswith('.svg')]
 
     logos = {'a': get_team_logo('a'), 'b': get_team_logo('b')}
     return {"files": sorted(img), "logos": logos, "logo_mode": get_logo_mode()}
